@@ -1,0 +1,17 @@
+.godot/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.pytest_cache/
+exports/
+runtime/
+logs/
+.draft/
+webui/node_modules/
+webui/dist/
+webui/test-results/
+webui/playwright-report/
+*.tsbuildinfo

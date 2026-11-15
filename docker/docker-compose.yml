@@ -1,0 +1,46 @@
+name: bigfish-otel
+
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    restart: unless-stopped
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./otel-collector.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      # 应用统一上报到 Collector / Applications export to the Collector
+      - "127.0.0.1:4317:4317"
+      - "127.0.0.1:4318:4318"
+    depends_on:
+      - jaeger
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    restart: unless-stopped
+    # 命名卷初始由 root 持有；允许 Badger 创建 key/data 目录。
+    # Named volumes are initially root-owned; allow Badger to create key/data directories.
+    user: "0:0"
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+      SPAN_STORAGE_TYPE: badger
+      BADGER_EPHEMERAL: "false"
+      BADGER_DIRECTORY_KEY: /badger/key
+      BADGER_DIRECTORY_VALUE: /badger/data
+    ports:
+      # 链路查询界面 / Trace query UI
+      - "127.0.0.1:16686:16686"
+    volumes:
+      - jaeger-badger:/badger
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  jaeger-badger:

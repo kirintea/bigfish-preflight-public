@@ -1,0 +1,8 @@
+environment: development
+offline_mode: true
+otel_enabled: true
+otlp_enabled: true
+otlp_endpoint: ${BIGFISH_OTLP_ENDPOINT:-http://127.0.0.1:4317}
+storage_dir: runtime/otel-local
+test_admin_token: ${TEST_ADMIN_TOKEN:-}
+simulator_token: ${SIMULATOR_TOKEN:-}

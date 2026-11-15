@@ -1,0 +1,16 @@
+﻿hooks:
+  - hook_id: harvest-public
+    provider_id: harvest-test
+    version: 1
+    slot: public_background
+    priority: 10
+    world_scope: [world-a]
+    event_ref: harvest-1
+  - hook_id: harvest-npc-a
+    provider_id: harvest-test
+    version: 1
+    slot: private_context
+    priority: 5
+    world_scope: [world-a]
+    npc_scope: [npc-a]
+    event_ref: harvest-1

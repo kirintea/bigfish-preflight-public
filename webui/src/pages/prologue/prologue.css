@@ -1,0 +1,896 @@
+.prologue {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #eaf0e9;
+}
+.prologue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px 25px;
+  background: #f8fbf7;
+  border-bottom: 1px solid #d5e1d7;
+  flex-shrink: 0;
+}
+.prologue-header h1 {
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: #284e4d;
+}
+.prologue-header .eyebrow {
+  color: #78968a;
+  font-size: 9px;
+}
+.prologue-tools {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.prologue-tools .icon {
+  color: #4b746c;
+}
+.prologue-tools .icon.active {
+  background: #dcece0;
+  border-color: #9dc6ad;
+}
+.chapter-label {
+  font-size: 11px;
+  color: #83988a;
+  margin-right: 16px;
+}
+.scene-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.scene-surface {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #b8d5cb;
+  position: relative;
+}
+.game-stage {
+  width: 100%;
+  aspect-ratio: 1408/800;
+  position: relative;
+  overflow: hidden;
+  background: #37abc1;
+  flex-shrink: 0;
+}
+.phaser-host {
+  position: absolute;
+  inset: 0;
+}
+.phaser-host canvas {
+  display: block;
+  image-rendering: pixelated;
+  max-width: 100%;
+  max-height: 100%;
+}
+.quest-hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #f9f9e9ef;
+  padding: 13px 17px;
+  min-width: 195px;
+  border-left: 3px solid #547d58;
+  box-shadow: 2px 4px 0 #3c696124;
+  pointer-events: none;
+}
+.quest-label {
+  font-size: 9px;
+  color: #75906f;
+  display: block;
+  margin-bottom: 6px;
+}
+.quest-hud strong {
+  display: block;
+  font-size: 12px;
+  color: #415e4c;
+}
+.quest-progress {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #8d8a6a;
+}
+.quest-progress b {
+  font-weight: 600;
+  margin-left: 4px;
+}
+.quest-progress .done {
+  color: #398866;
+}
+.scene-location {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #fbfae9e8;
+  padding: 8px 12px;
+  color: #4b7966;
+  font-size: 10px;
+  pointer-events: none;
+}
+.scene-location small {
+  font-size: 11px;
+  color: #749282;
+  margin-left: 12px;
+}
+.interact-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fcf8dcf0;
+  border: 1px solid #b4b281;
+  color: #4e654c;
+  font-size: 11px;
+  padding: 7px 14px;
+  min-height: 33px;
+  box-shadow: 2px 3px 0 #365a4f33;
+}
+.interact-hint kbd {
+  border: 1px solid #bdc3a5;
+  background: #fffce9;
+  padding: 2px 5px;
+  color: #4f6d57;
+  font: 11px Consolas;
+}
+.scene-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  background: #f5f8ed;
+  border-top: 1px solid #bbd0bf;
+  padding: 12px 20px;
+  min-height: 60px;
+  flex-shrink: 0;
+}
+.scene-controls {
+  display: flex;
+  gap: 8px;
+}
+.scene-controls button {
+  font-size: 10px;
+  color: #4e7567;
+  border-color: #ccd9c8;
+  background: #fafbef;
+  padding: 7px 9px;
+}
+.scene-receipt {
+  flex: 1;
+  color: #739082;
+  font-size: 10px;
+  min-width: 100px;
+  line-height: 1.7;
+}
+.direction-pad {
+  display: flex;
+  gap: 3px;
+}
+.direction-pad .icon {
+  width: 27px;
+  min-height: 28px;
+  height: 28px;
+  border: 1px solid #d3dece;
+  color: #617f6e;
+  touch-action: none;
+}
+.inventory-panel {
+  position: absolute;
+  right: 20px;
+  top: 68px;
+  width: 210px;
+  background: #fbfaeafa;
+  border: 1px solid #b5ccb4;
+  padding: 0 13px 12px;
+  box-shadow: 3px 5px 0 #4c786d25;
+}
+.inventory-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  color: #47654a;
+  border-bottom: 1px solid #dce3cd;
+}
+.inventory-heading h3 {
+  flex: 1;
+  font-size: 12px;
+}
+.inventory-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 47px;
+  border-bottom: 1px solid #e2e6d2;
+  font-size: 11px;
+  color: #6e7354;
+}
+.inventory-item b {
+  margin-left: auto;
+  color: #496c4f;
+}
+.item-pixel {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+}
+.item-pixel.berry {
+  background: #bf6577;
+  width: 15px;
+  height: 15px;
+  margin-left: 4px;
+  box-shadow:
+    6px 3px #cf7b86,
+    -3px 6px #a9586f;
+}
+.item-pixel.berry:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 4px;
+  background: #648b53;
+  width: 10px;
+  height: 5px;
+}
+.item-pixel.wood {
+  height: 9px;
+  background: #ab8958;
+  border-top: 3px solid #ccb17b;
+  transform: rotate(-15deg);
+}
+.item-pixel.shell {
+  height: 14px;
+  width: 17px;
+  background: #e1ab97;
+  border-top: 4px solid #f4d5b5;
+  border-left: 3px solid #cd9684;
+}
+.start-scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 17px;
+  background: #dce7c543;
+  text-align: center;
+  padding: 20px;
+}
+.chapter-number {
+  font: 12px Consolas;
+  color: #4c7b64;
+  border: 1px solid #5d8d7180;
+  padding: 6px 10px;
+  background: #eef4d3ba;
+}
+.start-scene h2 {
+  color: #254f4e;
+  font-size: 32px;
+  text-shadow: 0 2px #f6f0c7;
+}
+.start-scene p {
+  color: #365e54;
+  background: #f8f2d3b8;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.start-scene button {
+  margin-top: 8px;
+  padding: 11px 22px;
+  background: #3e795c;
+  border-color: #3e795c;
+}
+.paused-label {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #375f54df;
+  color: #e5efda;
+  padding: 7px 11px;
+  font-size: 10px;
+}
+.game-error {
+  padding: 8px 20px;
+  background: #fff1de;
+  color: #986839;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+}
+.dialogue-panel {
+  display: flex;
+  gap: 20px;
+  background: #fcf9e9;
+  border-top: 3px solid #97b697;
+  padding: 20px 25px;
+  min-height: 200px;
+  z-index: 3;
+  flex-shrink: 0;
+}
+.dialogue-portrait {
+  width: 100px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dce7d0;
+  overflow: hidden;
+  border-bottom: 5px solid #aabf9c;
+}
+.portrait-pixel {
+  height: 140px;
+  width: 92px;
+  position: relative;
+  image-rendering: pixelated;
+  align-self: flex-end;
+}
+.portrait-hat {
+  position: absolute;
+  top: 5px;
+  left: 13px;
+  width: 68px;
+  height: 22px;
+  background: #dcc39b;
+  border-top: 7px solid #e8d4ae;
+  z-index: 4;
+  box-shadow:
+    -4px 12px #cbb58f,
+    4px 12px #cbb58f;
+}
+.portrait-hair {
+  position: absolute;
+  top: 27px;
+  left: 10px;
+  width: 74px;
+  height: 61px;
+  background: #6e9cad;
+  box-shadow: 0 14px #60899a;
+}
+.portrait-face {
+  position: absolute;
+  top: 34px;
+  left: 23px;
+  width: 47px;
+  height: 48px;
+  background: #f2d7b0;
+  z-index: 2;
+  border-bottom: 7px solid #e4c39a;
+}
+.portrait-face i {
+  position: absolute;
+  top: 21px;
+  left: 9px;
+  background: #385d65;
+  width: 5px;
+  height: 7px;
+}
+.portrait-face i + i {
+  left: 32px;
+}
+.portrait-shirt {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 84px;
+  height: 58px;
+  background: #e7bf7a;
+  border-top: 11px solid #c99b61;
+  box-shadow:
+    -9px 9px #d7b273,
+    9px 9px #d7b273;
+}
+.portrait-shirt:after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  top: 15px;
+  height: 3px;
+  background: #cda667;
+  box-shadow:
+    0 9px #cda667,
+    0 18px #cda667;
+}
+.dialogue-content {
+  flex: 1;
+  min-width: 0;
+}
+.dialogue-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+.dialogue-heading > span {
+  font-size: 15px;
+  color: #416a64;
+  font-weight: 650;
+}
+.dialogue-heading small {
+  font-size: 9px;
+  color: #a2ab91;
+}
+.dialogue-heading button {
+  margin-left: auto;
+}
+.dialogue-content > p {
+  font-size: 13px;
+  color: #52694e;
+  line-height: 1.9;
+  margin-bottom: 14px;
+  overflow-wrap: anywhere;
+}
+.dialogue-input {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.dialogue-input textarea {
+  flex: 1;
+  min-height: 42px;
+  max-height: 100px;
+  resize: vertical;
+  font-size: 12px;
+  background: #fffef3;
+  border-color: #d6ddc5;
+}
+.dialogue-input button {
+  width: 41px;
+  flex-shrink: 0;
+}
+.dialogue-content .suggestions button {
+  color: #6f8265;
+  background: #f5f7e6;
+  border-color: #dbe2ca;
+}
+.last-player-message {
+  font-size: 10px;
+  color: #8b987d;
+  line-height: 1.8;
+  margin-bottom: 9px;
+  overflow-wrap: anywhere;
+}
+.follow-reply {
+  display: flex;
+  gap: 12px;
+  padding: 15px 22px;
+  background: #f3f7e6;
+  border-top: 1px solid #b4cfad;
+  color: #4f735f;
+  flex-shrink: 0;
+}
+.follow-reply > div {
+  flex: 1;
+  min-width: 0;
+}
+.follow-reply strong {
+  font-size: 11px;
+}
+.follow-reply p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 5px 0 10px;
+}
+.follow-reply form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.follow-reply select {
+  max-width: 110px;
+}
+.actor-editor {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.actor-editor label {
+  font-size: 11px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.actor-editor input {
+  width: 90px;
+}
+.follow-reply input {
+  flex: 1;
+  background: #fffff4;
+  font-size: 11px;
+  border-color: #cfdec4;
+}
+.debug-panel {
+  width: 290px;
+  flex-shrink: 0;
+  border-left: 1px solid #c5d9cb;
+  background: #fbfdf8;
+  padding: 0 17px;
+  overflow-y: auto;
+}
+.debug-panel .side-title {
+  border-bottom: 1px solid #d8e3d6;
+}
+.debug-version {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 9px;
+  color: #879888;
+  padding-top: 14px;
+  flex-wrap: wrap;
+}
+.debug-version span {
+  margin-left: auto;
+}
+.debug-coordinates {
+  display: flex;
+  gap: 10px;
+  margin: 5px 0 10px;
+}
+.debug-coordinates label {
+  min-width: 0;
+  flex: 1;
+  font-size: 10px;
+  color: #718775;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.debug-coordinates input {
+  width: 100%;
+  font-size: 11px;
+  padding: 6px;
+}
+.debug-actor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e9eee5;
+  padding: 5px 0;
+}
+.debug-actor > .text-button {
+  flex: 1;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+.debug-actor small {
+  font-size: 8px;
+  color: #a1ada0;
+}
+.debug-actor > span {
+  font-size: 9px;
+  color: #718974;
+}
+.debug-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 20px;
+}
+.debug-actions button {
+  font-size: 10px;
+}
+.debug-panel .json-view {
+  margin-bottom: 15px;
+}
+.debug-panel .badge {
+  font-size: 9px;
+}
+.prologue .scene-surface {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+@media (min-width: 801px) {
+  .prologue .scene-surface {
+    overflow: hidden;
+  }
+  .game-stage {
+    flex: 1;
+    min-height: 220px;
+    aspect-ratio: auto;
+  }
+  .dialogue-panel {
+    min-height: 190px;
+    max-height: 300px;
+    overflow: auto;
+  }
+  .phaser-host {
+    inset: 0;
+  }
+}
+@media (min-width: 1600px) {
+  .prologue-header {
+    padding: 22px 35px;
+  }
+}
+@media (max-width: 1100px) {
+  .debug-panel {
+    width: 245px;
+    padding: 0 13px;
+  }
+  .prologue-header {
+    padding: 15px 18px;
+  }
+  .prologue-header h1 {
+    font-size: 22px;
+  }
+  .prologue-tools {
+    gap: 3px;
+  }
+  .chapter-label {
+    margin-right: 6px;
+  }
+  .scene-footer {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .direction-pad {
+    display: none;
+  }
+  .quest-hud {
+    top: 14px;
+    left: 14px;
+    padding: 10px 12px;
+    min-width: 170px;
+  }
+  .scene-location {
+    top: 14px;
+    right: 14px;
+  }
+  .quest-hud strong {
+    font-size: 11px;
+  }
+  .dialogue-panel {
+    padding: 17px 18px;
+    gap: 15px;
+  }
+  .dialogue-portrait {
+    width: 80px;
+  }
+  .dialogue-content > p {
+    font-size: 12px;
+  }
+  .scene-controls button {
+    font-size: 9px;
+  }
+  .scene-receipt {
+    font-size: 9px;
+  }
+}
+@media (max-width: 800px) {
+  .scene-layout {
+    display: block;
+  }
+  .scene-surface {
+    overflow: visible;
+  }
+  .debug-panel {
+    width: 100%;
+    border-left: 0;
+    border-top: 1px solid #c5d9cb;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 18px;
+    padding: 0 18px;
+  }
+  .debug-panel > .side-title,
+  .debug-panel > .debug-version {
+    grid-column: 1/-1;
+  }
+  .prologue {
+    overflow: auto;
+    flex-shrink: 0;
+  }
+  .scene-location {
+    display: none;
+  }
+  .prologue-header h1 {
+    font-size: 21px;
+  }
+  .chapter-label {
+    display: none;
+  }
+  .quest-hud {
+    top: 12px;
+    left: 12px;
+    min-width: 150px;
+    padding: 9px 10px;
+  }
+  .quest-label {
+    font-size: 8px;
+  }
+  .quest-hud strong {
+    font-size: 10px;
+  }
+  .quest-progress {
+    font-size: 9px;
+    gap: 12px;
+  }
+  .interact-hint {
+    bottom: 13px;
+    font-size: 10px;
+  }
+  .dialogue-portrait {
+    width: 72px;
+  }
+  .direction-pad {
+    display: flex;
+  }
+  .scene-receipt {
+    order: 3;
+    width: 100%;
+    flex: auto;
+  }
+  .start-scene h2 {
+    font-size: 27px;
+  }
+  .start-scene p {
+    font-size: 11px;
+  }
+  .inventory-panel {
+    right: 12px;
+    top: 12px;
+    width: 170px;
+  }
+  .inventory-item {
+    font-size: 10px;
+    min-height: 37px;
+  }
+}
+@media (max-width: 480px) {
+  .prologue-header {
+    padding: 14px 12px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .prologue-header h1 {
+    font-size: 20px;
+  }
+  .prologue-tools {
+    align-self: flex-end;
+    margin-top: -4px;
+  }
+  .prologue-tools .icon {
+    width: 29px;
+    height: 29px;
+    min-height: 29px;
+  }
+  .game-stage {
+    aspect-ratio: 1/1;
+    min-height: 285px;
+  }
+  .phaser-host {
+    top: 45px;
+    bottom: 5px;
+  }
+  .quest-hud {
+    top: 9px;
+    left: 9px;
+    padding: 7px 9px;
+    min-width: 142px;
+  }
+  .quest-label {
+    font-size: 7px;
+    margin-bottom: 3px;
+  }
+  .quest-progress {
+    margin-top: 6px;
+    font-size: 8px;
+  }
+  .start-scene {
+    gap: 12px;
+  }
+  .start-scene h2 {
+    font-size: 22px;
+  }
+  .start-scene p {
+    font-size: 10px;
+    max-width: 230px;
+  }
+  .start-scene button {
+    font-size: 11px;
+    padding: 9px 16px;
+  }
+  .start-scene .chapter-number {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+  .scene-footer {
+    padding: 9px 10px;
+    gap: 9px;
+  }
+  .scene-controls {
+    gap: 5px;
+  }
+  .scene-controls button {
+    padding: 6px;
+    font-size: 9px;
+    gap: 4px;
+  }
+  .direction-pad {
+    margin-left: auto;
+    gap: 2px;
+  }
+  .direction-pad .icon {
+    width: 23px;
+    height: 25px;
+    min-height: 25px;
+    padding: 3px;
+  }
+  .scene-receipt {
+    font-size: 9px;
+  }
+  .dialogue-panel {
+    padding: 13px 12px;
+    gap: 10px;
+  }
+  .dialogue-portrait {
+    display: none;
+  }
+  .dialogue-heading > span {
+    font-size: 13px;
+  }
+  .dialogue-content > p {
+    font-size: 11px;
+  }
+  .dialogue-input textarea {
+    font-size: 11px;
+  }
+  .debug-panel {
+    grid-template-columns: 1fr;
+  }
+  .debug-panel > .side-title,
+  .debug-panel > .debug-version {
+    grid-column: auto;
+  }
+  .inventory-panel {
+    top: 75px;
+    right: 9px;
+    z-index: 2;
+    width: 155px;
+  }
+  .inventory-heading h3 {
+    font-size: 11px;
+  }
+  .interact-hint {
+    font-size: 9px;
+    padding: 6px 9px;
+    bottom: 10px;
+  }
+  .follow-reply {
+    padding: 12px;
+  }
+  .follow-reply p {
+    font-size: 11px;
+  }
+  .paused-label {
+    top: 80px;
+    left: 9px;
+  }
+}

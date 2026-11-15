@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "name": "beach-needs-baseline",
+  "seed": 7,
+  "npc_templates": ["npc-bigfish", "npc-claude"],
+  "steps": [
+    {"domain": "world", "entity_id": "$world", "tick": 0, "mode": "snapshot", "payload": {"tick": 0, "speed": 1, "scene": "beach", "pause_reasons": []}},
+    {"domain": "needs", "entity_id": "npc-bigfish", "tick": 0, "mode": "snapshot", "payload": {"hunger": 0.8, "mood": 0.65}},
+    {"domain": "needs", "entity_id": "npc-claude", "tick": 0, "mode": "snapshot", "payload": {"hunger": 0.35, "mood": 0.5}}
+  ]
+}

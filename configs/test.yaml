@@ -1,0 +1,15 @@
+environment: test
+test_control_enabled: true
+offline_mode: ${BIGFISH_OFFLINE_MODE:-true}
+llm:
+  provider: ${LLM_PROVIDER:-openai}
+  api_key: ${LLM_API_KEY:-}
+  base_url: ${LLM_BASE_URL:-}
+  model: ${LLM_MODEL_NAME:-offline-script}
+local_observation_enabled: true
+otel_enabled: true
+otlp_enabled: ${BIGFISH_OTLP_ENABLED:-true}
+otlp_endpoint: ${BIGFISH_OTLP_ENDPOINT:-http://127.0.0.1:4317}
+storage_dir: runtime/test
+test_admin_token: ${TEST_ADMIN_TOKEN:-}
+simulator_token: ${SIMULATOR_TOKEN:-}

@@ -1,0 +1,8 @@
+environment: production
+test_control_enabled: false
+offline_mode: true
+otel_enabled: true
+otlp_enabled: false
+storage_dir: runtime/prod
+test_admin_token: ${TEST_ADMIN_TOKEN}
+simulator_token: ${SIMULATOR_TOKEN}
